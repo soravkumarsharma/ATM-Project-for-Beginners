@@ -15,7 +15,9 @@ void showMenu(){
     cout<<"Press 2: To Withdraw Amount."<<endl;
     cout<<"Press 3: To Fast Cash."<<endl;
     cout<<"Press 4: To Deposit Amount."<<endl;
-    cout<<"Press 5: Exit."<<endl;
+    cout<<"Press 5: LogOut."<<endl;
+    cout<<"Press 6: Exit."<<endl;
+
 }
 
 //------------User Full Name Function.
@@ -318,7 +320,12 @@ int main(){
                                     goto depositJump;
                                 }
                                 break;
-                        case 5: exit(0);
+                                
+                        case 5: system("CLS");
+                                goto loginJump;
+                                break;
+
+                        case 6: exit(0);
                                 break;
                         default:
                                 cout<<"Invalid Input"<<endl;
