@@ -17,3 +17,7 @@ to run this program you have to firstly enter your first name,last name, and ema
 - github: [@SoravKumarSharma](https://www.github.com/SoravKumarSharma)
 - twitter: [Soravks_](https://twitter.com/soravks_)
 - E-mail: add.sorav@gmail.com
+
+## Contributors
+- Name: Archit Kumar
+- github: [@ArchitKumar-13](https://www.github.com/ArchitKumar-13)
