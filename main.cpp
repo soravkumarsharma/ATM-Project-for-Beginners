@@ -45,9 +45,35 @@ int main(){
     start:
     cout<<"\nCreate 4-Digit PIN"<<endl;
     cout<<"New PIN: ";
-    cin>>newPin;
+    char s1[4] = { 0 };
+    for (int i = 0; i < 4;i++) {
+        s1[i] = _getch();
+        if (s1[i] == 5) {
+            cin>>newPin;
+            break;
+        }
+        else {
+            _putch('*');
+        }
+    };
+    cout<<"\nYour pass is ****"<<endl;
+    getchar();
+
     cout<<"Confirm PIN: ";
-    cin>>confirmPin;
+    char s2[4] = { 0 };
+    for (int i = 0; i < 4;i++) {
+        s2[i] = _getch();
+        if (s2[i] == 5) {
+            cin>>confirmPin;
+            break;
+        }
+        else {
+            _putch('*');
+        }
+    };
+    cout<<"\nYour pass is ****"<<endl;
+    getchar();
+
     if(newPin>999 && newPin<=9999){
         if (confirmPin == newPin){
             system("CLS");
