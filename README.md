@@ -32,3 +32,6 @@ This project is for absolute newbies who just started their programming journey 
 ## Contributors
 - Name: Archit Kumar
 - github: [@ArchitKumar-13](https://www.github.com/ArchitKumar-13)
+
+- Name: Yuvraj Devnani😎
+- github: [@CoderYuvi](https://github.com/CoderYuvi)
