@@ -25,6 +25,14 @@ void userName(string fname,string lname){
     cout<<"Welcome, "<<fname<<" "<<lname<<endl;
 }
 
+//-----------Greets the user.
+void welcomeTemplate(string firstName, string lastName){
+    system("CLS");
+    welcome();
+    userName(firstName,lastName);
+    cout<<endl;
+}
+
 //----------------Main-Program----------------
 int main(){
     welcome();
@@ -50,10 +58,7 @@ int main(){
     cin>>confirmPin;
     if(newPin>999 && newPin<=9999){
         if (confirmPin == newPin){
-            system("CLS");
-            welcome();
-            userName(firstName,lastName);
-            cout<<endl;
+            welcomeTemplate(firstName,lastName);
             loginJump:
             //-----------User Log in
             cout<<"Log in"<<endl; 
@@ -62,10 +67,7 @@ int main(){
             cout<<"Enter Your PIN: ";
             cin>>loginPin;
             if(loginEmail == userEmail && loginPin == newPin){
-                system("CLS");
-                welcome();
-                userName(firstName,lastName);
-                cout<<endl;
+                welcomeTemplate(firstName,lastName);
                 int userChoice;
                 while(1){
                     fastJump:
@@ -73,19 +75,14 @@ int main(){
                     cout<<"Option: ";
                     cin>>userChoice;
                     switch(userChoice){
-                        case 1: system("CLS");
-                                welcome();
-                                userName(firstName,lastName);
-                                cout<<endl;
+                        case 1: 
+                                welcomeTemplate(firstName,lastName);
                                 balanceJump:
                                 int balancePin;
                                 cout<<"Enter Your PIN: ";
                                 cin>>balancePin;
                                 if(balancePin == newPin){
-                                    system("CLS");
-                                    welcome();
-                                    userName(firstName,lastName);
-                                    cout<<endl;
+                                    welcomeTemplate(firstName,lastName);
                                     cout<<"Your Balance is: "<<balance<<" Rs."<<endl;
                                 }
                                 else{
@@ -95,19 +92,13 @@ int main(){
                                 }
                                 break;
                         case 2: 
-                                system("CLS");
-                                welcome();
-                                userName(firstName,lastName);
-                                cout<<endl;
+                                welcomeTemplate(firstName,lastName);
                                 withdrawJump:
                                 int withdrawPin;
                                 cout<<"Enter Your PIN: ";
                                 cin>>withdrawPin;
                                 if(withdrawPin == newPin){
-                                    system("CLS");
-                                    welcome();
-                                    userName(firstName,lastName);
-                                    cout<<endl;
+                                    welcomeTemplate(firstName,lastName);
                                     cout<<"Enter Your Withdraw Amount: ";
                                     cin>>withdraw;
                                     if(balance>=withdraw){
@@ -130,19 +121,13 @@ int main(){
                                 }
                                 break;
                         case 3: 
-                                system("CLS");
-                                welcome();
-                                userName(firstName,lastName);
-                                cout<<endl;
+                                welcomeTemplate(firstName,lastName);
                                 fastcashJump:
                                 int fastPin;
                                 cout<<"Enter Your PIN: ";
                                 cin>>fastPin;
                                 if(fastPin == newPin){
-                                    system("CLS");
-                                    welcome();
-                                    userName(firstName,lastName);
-                                    cout<<endl;
+                                    welcomeTemplate(firstName,lastName);
                                     char usrChoice;
                                     while(1){
                                         cout<<"Press 1: To Withdraw 500 Rs."<<endl;
@@ -152,11 +137,8 @@ int main(){
                                         cout<<"Press 5: Exit From Fast Cash."<<endl;
                                         usrChoice = getch();
                                         switch(usrChoice){
-                                            case '1':   
-                                                        system("CLS");
-                                                        welcome();
-                                                        userName(firstName,lastName);
-                                                        cout<<endl;
+                                            case '1': 
+                                                        welcomeTemplate(firstName,lastName);
                                                         fiveJump:
                                                         int fivethouPin;
                                                         cout<<"Enter Your PIN: ";
@@ -182,10 +164,7 @@ int main(){
                                                         }
                                                         break;
                                             case '2':
-                                                        system("CLS");
-                                                        welcome();
-                                                        userName(firstName,lastName);
-                                                        cout<<endl;
+                                                        welcomeTemplate(firstName,lastName);
                                                         tenJump:
                                                         int tenthouPin;
                                                         cout<<"Enter Your PIN: ";
@@ -213,10 +192,7 @@ int main(){
                                                         }
                                                         break;
                                             case '3':
-                                                        system("CLS");
-                                                        welcome();
-                                                        userName(firstName,lastName);
-                                                        cout<<endl;
+                                                        welcomeTemplate(firstName,lastName);
                                                         fiftyJump:
                                                         int fiftythouPin;
                                                         cout<<"Enter Your PIN: ";
@@ -244,10 +220,7 @@ int main(){
                                                         }
                                                         break;
                                             case '4':
-                                                        system("CLS");
-                                                        welcome();
-                                                        userName(firstName,lastName);
-                                                        cout<<endl;
+                                                        welcomeTemplate(firstName,lastName);
                                                         hundJump: 
                                                         int hundthouPin;
                                                         cout<<"Enter Your PIN: ";
@@ -290,20 +263,14 @@ int main(){
                                 }
                                 break;
                         case 4: 
-                                system("CLS");
-                                welcome();
-                                userName(firstName,lastName);
-                                cout<<endl;
+                                welcomeTemplate(firstName,lastName);
                                 depositJump:
                                 int depositPin;
                                 cout<<"Enter Your PIN: ";
                                 cin>>depositPin;
 
                                 if(depositPin==newPin){
-                                    system("CLS");
-                                    welcome();
-                                    userName(firstName,lastName);
-                                    cout<<endl;
+                                    welcomeTemplate(firstName,lastName);
                                     cout<<"Enter Your Deposit Amount: ";
                                     cin>>deposit;
                                     cout<<"Please wait!! Your amount "<<deposit<<" Rs. is depositing.";
