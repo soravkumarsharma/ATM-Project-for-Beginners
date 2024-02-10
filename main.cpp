@@ -1,4 +1,9 @@
+#include "Account/Account.h"
+#include "BankStatement/BankStatement.h"
+
+#include <iomanip>
 #include<iostream>
+#include <sstream>
 #include<windows.h>
 #include<conio.h>
 using namespace std;
@@ -15,8 +20,9 @@ void showMenu(){
     cout<<"Press 2: To Withdraw Amount."<<endl;
     cout<<"Press 3: To Fast Cash."<<endl;
     cout<<"Press 4: To Deposit Amount."<<endl;
-    cout<<"Press 5: LogOut."<<endl;
-    cout<<"Press 6: Exit."<<endl;
+    cout<<"Press 5: To Read your Bank Statement."<<endl;
+    cout<<"Press 6: LogOut."<<endl;
+    cout<<"Press 7: Exit."<<endl;
 
 }
 
@@ -31,6 +37,13 @@ void welcomeTemplate(string firstName, string lastName){
     welcome();
     userName(firstName,lastName);
     cout<<endl;
+}
+
+// Returns the input as a string, with precision set at 2 decimal places.
+string FloatToString(const float number) {
+    stringstream stream;
+    stream << fixed << setprecision(2) << number;
+    return stream.str();
 }
 
 //----------------Main-Program----------------
@@ -50,6 +63,9 @@ int main(){
     cin>>lastName;
     cout<<"Enter Your Email-id: ";
     cin>>userEmail;
+
+    Account account{firstName, lastName, userEmail};
+
     start:
     cout<<"\nCreate 4-Digit PIN"<<endl;
     cout<<"New PIN: ";
@@ -109,6 +125,8 @@ int main(){
                                         }
                                         cout<<"\n Successfully Withdraw Amount."<<endl;
                                         balance -= withdraw;
+
+                                        account.AddTransaction("Withdrawl: " + FloatToString(withdraw) + " Rs");
                                     }
                                     else{
                                         cout<<"Not enough balance in your accout."<<endl;
@@ -152,6 +170,9 @@ int main(){
                                                                 }
                                                                 balance -= 500;
                                                                 cout<<"\nSuccessfully Amount Withdraw."<<endl;
+
+                                                                account.AddTransaction("Withdrawl: " + FloatToString(500) + " Rs");
+
                                                             }
                                                             else{
                                                                 cout<<"Not enough balance in your account."<<endl;
@@ -179,6 +200,8 @@ int main(){
                                                                 }
                                                                 balance -= 1000;
                                                                 cout<<"\nSuccessfully Amount Withdraw."<<endl;
+
+                                                                account.AddTransaction("Withdrawl: " + FloatToString(1000) + " Rs");
 
                                                             }
                                                             else{
@@ -208,6 +231,8 @@ int main(){
                                                                 balance -= 5000;
                                                                 cout<<"\nSuccessfully Amount Withdraw."<<endl;
 
+                                                                account.AddTransaction("Withdrawl: " + FloatToString(5000) + " Rs");
+
                                                             }
                                                             else{
                                                                 cout<<"Not enough balance in your account."<<endl;
@@ -235,6 +260,8 @@ int main(){
                                                                 }
                                                                 balance -= 10000;
                                                                 cout<<"\nSuccessfully Amount Withdraw."<<endl;
+
+                                                                account.AddTransaction("Withdrawl: " + FloatToString(10000) + " Rs");
 
                                                             }
                                                             else{
@@ -280,6 +307,8 @@ int main(){
                                     }
                                     balance += deposit;
                                     cout<<"\nSuccessfully Amount Deposited."<<endl;
+
+                                    account.AddTransaction("Deposit: " + FloatToString(deposit) + " Rs");
                                 }
                                 else{
                                     cout<<"Invalid PIN"<<endl;
@@ -287,12 +316,18 @@ int main(){
                                     goto depositJump;
                                 }
                                 break;
+                        
+                        case 5:
+                        {
+                            BankStatement bank_statement{account};
+                            bank_statement.GetAccountTransactions();
+                        }
                                 
-                        case 5: system("CLS");
+                        case 6: system("CLS");
                                 goto loginJump;
                                 break;
 
-                        case 6: exit(0);
+                        case 7: exit(0);
                                 break;
                         default:
                                 cout<<"Invalid Input"<<endl;
