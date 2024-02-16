@@ -23,11 +23,6 @@ This project is for absolute newbies who just started their programming journey 
 - Step5: Push the updated files from your created branch.
 - Step6: Create a Pull Request (PR). 
 
-## Programmer
-
-- github: [@SoravKumarSharma](https://www.github.com/SoravKumarSharma)
-- twitter: [Soravks_](https://twitter.com/soravks_)
-- E-mail: add.sorav@gmail.com
 
 ## Contributors
 Thanks to everyone for all your contributions, no matter its size!
