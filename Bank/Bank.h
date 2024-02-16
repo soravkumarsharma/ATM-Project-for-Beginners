@@ -14,8 +14,12 @@ public:
 
 private:
   // Account related interactions
-  void CheckAccountBalance() const;
-  void ReadAccountBankStatement() const;
+  void AccountCheckBalance() const;
+  void AccountWithdrawAmount() const;
+  void AccountFastCash() const;
+  void AccountDepositAmount() const;
+  void AccountReadBankStatement() const;
+  void LogAccountOut() const;
 
   // The account that is currently logged-in
   std::shared_ptr<IAccount> m_logged_in_account;
