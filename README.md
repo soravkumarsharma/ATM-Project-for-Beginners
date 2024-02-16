@@ -8,7 +8,7 @@ An automated teller machine (ATM) is an electronic banking outlet that allows cu
 
 ## About Project:
 
-In this Project there are 5 options given to the user, first is that "Check Balance", then second is "Withdrawm Amount", third is "Fast Cash", fourth is "Deposit Amount" and last one is Exit from this Program. 
+In this Project there are 5 options given to the user, first is that "Check Balance", then second is "Withdrawn Amount", third is "Fast Cash", fourth is "Deposit Amount" and last one is Exit from this Program. 
 
 to run this program you have to firstly enter your first name,last name, and email address and then you have to create a 4-digit pin. and then after sign up you have to login with email address and 4 digit pin. and then you can easily Deposit the Amount and easily Withdraw Amount with the help of manually and fast cash option.
 
@@ -30,8 +30,8 @@ This project is for absolute newbies who just started their programming journey 
 - E-mail: add.sorav@gmail.com
 
 ## Contributors
-- Name: Archit Kumar
-- github: [@ArchitKumar-13](https://www.github.com/ArchitKumar-13)
+Thanks to everyone for all your contributions, no matter its size!
 
-- Name: Yuvraj Devnani😎
-- github: [@CoderYuvi](https://github.com/CoderYuvi)
+<a href="https://github.com/soravkumarsharma/ATM-Project-for-Beginners/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=soravkumarsharma/ATM-Project-for-Beginners" />
+</a>
