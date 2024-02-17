@@ -2,10 +2,16 @@
 
 #include "IAccount.h"
 
+#include <optional>
+
 class Account : public IAccount {
 public:
   Account(std::string first_name, std::string last_name, std::string email);
   ~Account() = default;
+
+  virtual void CreatePIN() override;
+  virtual bool HasCreatedPIN() const;
+  virtual bool Authenticate() const override;
 
   virtual void CheckBalance() const override;
   virtual void WithdrawAmount() override;
@@ -30,6 +36,7 @@ private:
   std::string m_first_name;
   std::string m_last_name;
   std::string m_email;
+  std::optional<int> m_PIN;
 
   float m_balance;
 
