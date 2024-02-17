@@ -26,15 +26,57 @@ void WaitIndicator() {
 Account::Account(std::string first_name, std::string last_name,
                  std::string email)
     : m_first_name{first_name}, m_last_name{last_name}, m_email{email},
-      m_balance{0.0}, m_transactions{} {}
+      m_PIN{std::nullopt}, m_balance{0.0}, m_transactions{} {}
+
+void Account::CreatePIN() {
+  int PIN;
+  std::cout << "Please input a 4-digit number for your PIN: ";
+  std::cin >> PIN;
+
+  while (std::to_string(PIN).length() != 4) {
+    std::cout << "Your PIN can only contain 4 digits. Please enter again: ";
+    std::cin >> PIN;
+  }
+
+  m_PIN = PIN;
+  std::cout << "Your PIN has been created." << std::endl;
+}
+
+bool Account::HasCreatedPIN() const { return m_PIN.has_value(); }
+
+bool Account::Authenticate() const {
+  if (HasCreatedPIN()) {
+    int authentication_input;
+    std::cout << "Please enter your PIN: ";
+    std::cin >> authentication_input;
+
+    if (authentication_input == m_PIN.value()) {
+      std::cout << "Authentication successful!" << std::endl;
+      return true;
+    } else {
+      std::cout << "Authentication was not successful..." << std::endl;
+      return false;
+    }
+  }
+
+  std::cout << "You have not created a PIN yet." << std::endl;
+  std::cout << "In order to authenticate, please create a PIN." << std::endl;
+  return false;
+}
 
 void Account::CheckBalance() const {
+  if (!Authenticate()) {
+    std::cout << "Fast Cash order not authorized, aborting..." << std::endl;
+  }
+
   std::cout << "Your balance is: " << FloatToString(m_balance) << " Rs."
             << std::endl;
 }
 
 void Account::WithdrawAmount() {
-  // TODO: Authenticate account
+  if (!Authenticate()) {
+    std::cout << "Withdraw order not authorized, aborting..." << std::endl;
+  }
 
   float withdraw_amount;
   std::cout << "Enter your withdrawal amount: ";
@@ -60,7 +102,9 @@ void Account::WithdrawAmount() {
 }
 
 void Account::FastCash() {
-  // TODO: Authenticate account
+  if (!Authenticate()) {
+    std::cout << "Fast Cash order not authorized, aborting..." << std::endl;
+  }
 
   int fast_cash_choice;
   std::cout << "Select the amount you want to withdraw from the options."
@@ -124,6 +168,11 @@ void Account::DepositAmount() {
 }
 
 void Account::ReadBankStatement() const {
+  if (!Authenticate()) {
+    std::cout << "Read Bank Statement order not authorized, aborting..."
+              << std::endl;
+  }
+
   if (!m_transactions.size()) {
     std::cout << "This account has no logged transactions..." << std::endl;
     return;

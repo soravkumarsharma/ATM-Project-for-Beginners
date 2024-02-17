@@ -4,11 +4,11 @@
 
 #include <iostream>
 
-// //------Welcome Screen Function.
-// void welcome() {
-//   cout << "\n\tATM - (github.com/SoravkumarSharma)\n" << endl;
-//   cout << "\t\tWELCOME TO SKS BANK\n" << endl;
-// }
+//------Welcome Screen Function.
+void WelcomeScreen() {
+  std::cout << "\n\tATM - (github.com/SoravkumarSharma)\n" << std::endl;
+  std::cout << "\t\tWELCOME TO SKS BANK\n" << std::endl;
+}
 
 // //------------User Full Name Function.
 // void userName(string fname, string lname) {
@@ -25,17 +25,15 @@
 
 //----------------Main-Program----------------
 int main() {
-  //   welcome();
-  //-------------User Sign-up----------
+  WelcomeScreen();
 
   std::shared_ptr<Bank> bank = std::make_shared<Bank>();
 
   std::shared_ptr<MainMenu> main_menu = std::make_shared<MainMenu>();
 
+  //-------------User Sign-up----------
   std::cout << "SIGN UP" << std::endl;
-  //   int newPin, confirmPin, loginPin;
-  // TODO: Add PIN to account for authentication
-  std::string firstName, lastName, userEmail /*loginEmail*/;
+  std::string firstName, lastName, userEmail;
 
   std::cout << "Enter Your First Name: ";
   std::cin >> firstName;
@@ -46,6 +44,7 @@ int main() {
 
   std::shared_ptr<Account> account =
       std::make_shared<Account>(firstName, lastName, userEmail);
+  account->CreatePIN();
 
   bank->LogAccountIn(account);
 
@@ -56,52 +55,6 @@ int main() {
 
     bank->ProcessMainMenuChoice(main_menu_choice);
   } while (main_menu_choice != 7);
-
-  // start:
-  // cout<<"\nCreate 4-Digit PIN"<<endl;
-  // cout<<"New PIN: ";
-  // cin>>newPin;
-  // cout<<"Confirm PIN: ";
-  // cin>>confirmPin;
-  // if(newPin>999 && newPin<=9999){
-  //     if (confirmPin == newPin){
-  //         welcomeTemplate(firstName,lastName);
-  //         loginJump:
-  //         //-----------User Log in
-  //         cout<<"Log in"<<endl;
-  //         cout<<"Enter Your Email-id: ";
-  //         cin>>loginEmail;
-  //         cout<<"Enter Your PIN: ";
-  //         cin>>loginPin;
-  //         if(loginEmail == userEmail && loginPin == newPin)
-  //         else if(loginEmail != userEmail && loginPin == newPin){
-  //             cout<<"Invalid Email-id"<<endl;
-  //             Sleep(1000);
-  //             goto loginJump;
-  //         }
-  //         else if(loginEmail == userEmail && loginPin != newPin){
-  //             cout<<"Invalid PIN"<<endl;
-  //             Sleep(1000);
-  //             goto loginJump;
-
-  //         }
-  //         else{
-  //             cout<<"Invalid Email-id and PIN"<<endl;
-  //             Sleep(1000);
-  //             goto loginJump;
-  //         }
-  //     }
-  //     else{
-  //         cout<<"Invalid Confirm PIN."<<endl;
-  //         Sleep(1000);
-  //         goto start;
-  //     }
-  // }
-  // else{
-  //     cout<<"Please Create 4-Digit PIN"<<endl;
-  //     Sleep(1000);
-  //     goto start;
-  // }
 
   return 0;
 }

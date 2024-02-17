@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void Bank::ProcessMainMenuChoice(const int user_choice) const {
+void Bank::ProcessMainMenuChoice(const int user_choice) {
   switch (user_choice) {
   case 1: {
     AccountCheckBalance();
@@ -22,6 +22,7 @@ void Bank::ProcessMainMenuChoice(const int user_choice) const {
   }
   case 5: {
     AccountReadBankStatement();
+    break;
   }
   case 6: {
     LogAccountOut();
@@ -41,9 +42,14 @@ void Bank::LogAccountIn(const std::shared_ptr<IAccount> account) {
     return;
   }
 
-  // TODO: Authenticate account
+  if (!account->Authenticate()) {
+    std::cout << "Sorry, we cannot log you in without proper authentication."
+              << std::endl;
+    return;
+  }
 
   m_logged_in_account = account;
+  std::cout << "You have successfully logged in!" << std::endl;
 }
 
 void Bank::AccountCheckBalance() const {
@@ -91,6 +97,7 @@ void Bank::AccountReadBankStatement() const {
   m_logged_in_account->ReadBankStatement();
 }
 
-void Bank::LogAccountOut() const {
-  // TODO: Add functionality to log an account out
+void Bank::LogAccountOut() {
+  m_logged_in_account = nullptr;
+  std::cout << "You have been successfully logged out." << std::endl;
 }
