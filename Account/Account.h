@@ -7,12 +7,11 @@ public:
   Account(std::string first_name, std::string last_name, std::string email);
   ~Account() = default;
 
-  // Prints to the screen the total amount of money of this account
   virtual void CheckBalance() const override;
-  // Prints to the screen the recent transactions of this account
+  virtual void WithdrawAmount() override;
+  virtual void FastCash() override;
+  virtual void DepositAmount() override;
   virtual void ReadBankStatement() const override;
-
-  void AddTransaction(std::string new_transaction);
 
   std::string get_first_name() const;
   void set_first_name(std::string first_name);
@@ -26,6 +25,8 @@ public:
   std::vector<std::string> get_transactions() const;
 
 private:
+  void AddTransaction(std::string new_transaction);
+
   std::string m_first_name;
   std::string m_last_name;
   std::string m_email;
