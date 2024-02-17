@@ -19,9 +19,8 @@ This project is for absolute newbies who just started their programming journey 
 - Step1: Fork the project.
 - Step2: Clone the project in your local machine.
 - Step3: Create a new branch and start your contribution.
-- Step4: Update ReadMe file with your "Name" and "github" profile.
-- Step5: Push the updated files from your created branch.
-- Step6: Create a Pull Request (PR). 
+- Step4: Push the updated files from your created branch.
+- Step5: Create a Pull Request (PR). 
 
 
 ## Contributors
