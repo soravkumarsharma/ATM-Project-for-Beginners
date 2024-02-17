@@ -25,7 +25,7 @@ This project is for absolute newbies who just started their programming journey 
 
 
 ## Contributors
-Thanks to everyone for all your contributions, no matter its size!
+Thanks to everyone for all your contributions.
 
 <a href="https://github.com/soravkumarsharma/ATM-Project-for-Beginners/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=soravkumarsharma/ATM-Project-for-Beginners" />
